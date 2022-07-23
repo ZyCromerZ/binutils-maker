@@ -39,6 +39,10 @@ UploadAgainB()
 }
 # LinkDL="https://github.com/ZyCromerZ/binutils-maker/releases/download/${Version}-${TagsDate}-up/binutils-${Version}.tar.xz"
 
+if [[ -e result/binutils-${Version}.date ]];then
+    [[ $(cat result/binutils-${Version}.date) == "$TagsDate" ]] && echo "already done" && exit
+fi
+
 git clone git://sourceware.org/git/binutils-gdb.git -b ${Version} binutils-${Version} --depth=1
 
 tar --exclude="binutils-${Version}/.git" -cJf binutils-${Version}.tar.xz binutils-${Version} && rm -rf binutils-${Version}
