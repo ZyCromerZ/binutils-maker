@@ -1,0 +1,22 @@
+name: Create binutils
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '10 0 * * *'
+
+jobs:
+  master:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: create binutils master
+      env:
+        GIT_SECRET: ${{ secrets.GIT_SECRET }}
+      run: |
+        chmod +x maker.sh
+        bash maker.sh master
