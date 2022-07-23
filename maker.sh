@@ -28,7 +28,7 @@ UploadAgainB()
         --repo binutils-maker \
         --tag ${Version}-${TagsDate}-up \
         --name "binutils-${Version}.sha512" \
-        --file "binutils-maker/result/binutils-${Version}.sha512" || fail="y"
+        --file "binutils-${Version}.sha512" || fail="y"
     TotalTry=$(($TotalTry+1))
     if [ "$fail" == "y" ];then
         if [ "$TotalTry" != "5" ];then
