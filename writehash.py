@@ -30,4 +30,4 @@ if args.filename:
 
     filenya = file.joinpath("binutils-" + Filaname + ".sha512")
     with filenya.open('w') as f:
-        f.write(file_hash.hexdigest())
+        f.write(file_hash.hexdigest() + "  binutils-" + Filaname + ".tar.xz")
